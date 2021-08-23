@@ -1,0 +1,121 @@
+model_from: account.account
+model_to: account.account
+external_id_method: match_field
+external_id_field_from: code
+external_id_field_to: code
+external_id_domain_to: [['company_id','=',4]]
+fields:
+  code:
+    from:
+      name: code
+      type: char
+    map_method: magic_map
+    to:
+      name: code
+      type: char
+  currency_id:
+    from:
+      name: currency_id
+      relation: res.currency
+      type: many2one
+    map_method: magic_map
+    to:
+      name: currency_id
+      relation: res.currency
+      type: many2one
+  deprecated:
+    from:
+      name: deprecated
+      type: boolean
+    map_method: magic_map
+    to:
+      name: deprecated
+      type: boolean
+  name:
+    from:
+      name: name
+      type: char
+    map_method: magic_map
+    to:
+      name: name
+      type: char
+  note:
+    from:
+      name: note
+      type: text
+    map_method: magic_map
+    to:
+      name: note
+      type: text
+  opening_credit:
+    from:
+      name: opening_credit
+      type: monetary
+    map_method: magic_map
+    to:
+      name: opening_credit
+      type: monetary
+  opening_debit:
+    from:
+      name: opening_debit
+      type: monetary
+    map_method: magic_map
+    to:
+      name: opening_debit
+      type: monetary
+  reconcile:
+    from:
+      name: reconcile
+      type: boolean
+    map_method: magic_map
+    to:
+      name: reconcile
+      type: boolean
+  tag_ids:
+    from:
+      name: tag_ids
+      relation: account.account.tag
+      type: many2many
+    map_method: magic_map
+    to:
+      name: tag_ids
+      relation: account.account.tag
+      type: many2many
+  tax_ids:
+    from:
+      name: tax_ids
+      relation: account.tax
+      type: many2many
+    map_method: magic_map
+    to:
+      name: tax_ids
+      relation: account.tax
+      type: many2many
+  used:
+    from:
+      name: used
+      type: boolean
+    map_method: magic_map
+    to:
+      name: used
+      type: boolean
+  user_type_id:
+    from:
+      name: user_type_id
+      relation: account.account.type
+      type: many2one
+    map_method: magic_map
+    to:
+      name: user_type_id
+      relation: account.account.type
+      type: many2one
+  group_id:
+    from:
+      name: group_id
+      relation: account.group
+      type: many2one
+    map_method: magic_map
+    to:
+      name: group_id
+      relation: account.group
+      type: many2one      

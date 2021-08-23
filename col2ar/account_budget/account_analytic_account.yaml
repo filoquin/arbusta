@@ -1,0 +1,19 @@
+domain: []
+external_id_method: row_get_id
+external_id_nomenclature: account_analytic_account_%s
+fields:
+  crossovered_budget_line:
+    from:
+      name: crossovered_budget_line
+      relation: crossovered.budget.lines
+      relation_field: analytic_account_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: crossovered_budget_line
+      relation: crossovered.budget.lines
+      relation_field: analytic_account_id
+      type: one2many
+model_from: account.analytic.account
+model_to: account.analytic.account
+no_match_fields: []

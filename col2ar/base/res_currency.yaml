@@ -1,0 +1,77 @@
+model_from: res.currency
+model_to: res.currency
+domain: []
+external_id_method: match_field
+external_id_field_from: name
+external_id_field_to: name
+external_id_nomenclature: None
+fields:
+  active:
+    from:
+      name: active
+      type: boolean
+    map_method: magic_map
+    to:
+      name: active
+      type: boolean
+  currency_subunit_label:
+    from:
+      name: currency_subunit_label
+      type: char
+    map_method: magic_map
+    to:
+      name: currency_subunit_label
+      type: char
+  currency_unit_label:
+    from:
+      name: currency_unit_label
+      type: char
+    map_method: magic_map
+    to:
+      name: currency_unit_label
+      type: char
+  name:
+    from:
+      name: name
+      type: char
+    map_method: magic_map
+    to:
+      name: name
+      type: char
+  position:
+    from:
+      name: position
+      type: selection
+    map_method: magic_map
+    to:
+      name: position
+      type: selection
+  rate_ids:
+    from:
+      name: rate_ids
+      relation: res.currency.rate
+      relation_field: currency_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: rate_ids
+      relation: res.currency.rate
+      relation_field: currency_id
+      type: one2many
+  rounding:
+    from:
+      name: rounding
+      type: float
+    map_method: magic_map
+    to:
+      name: rounding
+      type: float
+  symbol:
+    from:
+      name: symbol
+      type: char
+    map_method: magic_map
+    to:
+      name: symbol
+      type: char
+

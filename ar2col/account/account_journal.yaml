@@ -1,0 +1,490 @@
+model_from: account.journal
+model_to: account.journal
+domain: []
+external_id_method: match_field
+external_id_field_from: code
+external_id_field_to: code
+fields:
+  account_control_ids:
+    from:
+      name: account_control_ids
+      relation: account.account
+      type: many2many
+    map_method: magic_map
+    to:
+      name: account_control_ids
+      relation: account.account
+      type: many2many
+  active:
+    from:
+      name: active
+      type: boolean
+    map_method: magic_map
+    to:
+      name: active
+      type: boolean
+  activity_ids:
+    from:
+      name: activity_ids
+      relation: mail.activity
+      relation_field: res_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: activity_ids
+      relation: mail.activity
+      relation_field: res_id
+      type: one2many
+  activity_summary:
+    from:
+      name: activity_summary
+      type: char
+    map_method: magic_map
+    to:
+      name: activity_summary
+      type: char
+  activity_type_id:
+    from:
+      name: activity_type_id
+      relation: mail.activity.type
+      type: many2one
+    map_method: magic_map
+    to:
+      name: activity_type_id
+      relation: mail.activity.type
+      type: many2one
+  activity_user_id:
+    from:
+      name: activity_user_id
+      relation: res.users
+      type: many2one
+    map_method: magic_map
+    to:
+      name: activity_user_id
+      relation: res.users
+      type: many2one
+  alias_id:
+    from:
+      name: alias_id
+      relation: mail.alias
+      type: many2one
+    map_method: magic_map
+    to:
+      name: alias_id
+      relation: mail.alias
+      type: many2one
+  alias_name:
+    from:
+      name: alias_name
+      type: char
+    map_method: magic_map
+    to:
+      name: alias_name
+      type: char
+  bank_acc_number:
+    from:
+      name: bank_acc_number
+      type: char
+    map_method: magic_map
+    to:
+      name: bank_acc_number
+      type: char
+  bank_account_id:
+    from:
+      name: bank_account_id
+      relation: res.partner.bank
+      type: many2one
+    map_method: magic_map
+    to:
+      name: bank_account_id
+      relation: res.partner.bank
+      type: many2one
+  bank_id:
+    from:
+      name: bank_id
+      relation: res.bank
+      type: many2one
+    map_method: magic_map
+    to:
+      name: bank_id
+      relation: res.bank
+      type: many2one
+  bank_statements_source:
+    from:
+      name: bank_statements_source
+      type: selection
+    map_method: magic_map
+    to:
+      name: bank_statements_source
+      type: selection
+  code:
+    from:
+      name: code
+      type: char
+    map_method: magic_map
+    to:
+      name: code
+      type: char
+  color:
+    from:
+      name: color
+      type: integer
+    map_method: magic_map
+    to:
+      name: color
+      type: integer
+  company_id:
+    from:
+      name: company_id
+      relation: res.company
+      type: many2one
+    map_method: magic_map
+    to:
+      name: company_id
+      relation: res.company
+      type: many2one
+  currency_id:
+    from:
+      name: currency_id
+      relation: res.currency
+      type: many2one
+    map_method: magic_map
+    to:
+      name: currency_id
+      relation: res.currency
+      type: many2one
+  default_credit_account_id:
+    from:
+      name: default_credit_account_id
+      relation: account.account
+      type: many2one
+    map_method: magic_map
+    to:
+      name: default_credit_account_id
+      relation: account.account
+      type: many2one
+  default_debit_account_id:
+    from:
+      name: default_debit_account_id
+      relation: account.account
+      type: many2one
+    map_method: magic_map
+    to:
+      name: default_debit_account_id
+      relation: account.account
+      type: many2one
+  inbound_payment_method_ids:
+    from:
+      name: inbound_payment_method_ids
+      relation: account.payment.method
+      type: many2many
+    map_method: magic_map
+    to:
+      name: inbound_payment_method_ids
+      relation: account.payment.method
+      type: many2many
+  invoice_reference_model:
+    from:
+      name: invoice_reference_model
+      type: selection
+    map_method: magic_map
+    to:
+      name: invoice_reference_model
+      type: selection
+  invoice_reference_type:
+    from:
+      name: invoice_reference_type
+      type: selection
+    map_method: magic_map
+    to:
+      name: invoice_reference_type
+      type: selection
+  journal_group_ids:
+    from:
+      name: journal_group_ids
+      relation: account.journal.group
+      type: many2many
+    map_method: magic_map
+    to:
+      name: journal_group_ids
+      relation: account.journal.group
+      type: many2many
+  loss_account_id:
+    from:
+      name: loss_account_id
+      relation: account.account
+      type: many2one
+    map_method: magic_map
+    to:
+      name: loss_account_id
+      relation: account.account
+      type: many2one
+  message_follower_ids:
+    from:
+      name: message_follower_ids
+      relation: mail.followers
+      relation_field: res_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: message_follower_ids
+      relation: mail.followers
+      relation_field: res_id
+      type: one2many
+  message_ids:
+    from:
+      name: message_ids
+      relation: mail.message
+      relation_field: res_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: message_ids
+      relation: mail.message
+      relation_field: res_id
+      type: one2many
+  message_main_attachment_id:
+    from:
+      name: message_main_attachment_id
+      relation: ir.attachment
+      type: many2one
+    map_method: magic_map
+    to:
+      name: message_main_attachment_id
+      relation: ir.attachment
+      type: many2one
+  name:
+    from:
+      name: name
+      type: char
+    map_method: magic_map
+    to:
+      name: name
+      type: char
+  outbound_payment_method_ids:
+    from:
+      name: outbound_payment_method_ids
+      relation: account.payment.method
+      type: many2many
+    map_method: magic_map
+    to:
+      name: outbound_payment_method_ids
+      relation: account.payment.method
+      type: many2many
+  post_at:
+    from:
+      name: post_at
+      type: selection
+    map_method: magic_map
+    to:
+      name: post_at
+      type: selection
+  profit_account_id:
+    from:
+      name: profit_account_id
+      relation: account.account
+      type: many2one
+    map_method: magic_map
+    to:
+      name: profit_account_id
+      relation: account.account
+      type: many2one
+  refund_sequence:
+    from:
+      name: refund_sequence
+      type: boolean
+    map_method: magic_map
+    to:
+      name: refund_sequence
+      type: boolean
+  refund_sequence_id:
+    from:
+      name: refund_sequence_id
+      relation: ir.sequence
+      type: many2one
+    map_method: magic_map
+    to:
+      name: refund_sequence_id
+      relation: ir.sequence
+      type: many2one
+  refund_sequence_number_next:
+    from:
+      name: refund_sequence_number_next
+      type: integer
+    map_method: magic_map
+    to:
+      name: refund_sequence_number_next
+      type: integer
+  restrict_mode_hash_table:
+    from:
+      name: restrict_mode_hash_table
+      type: boolean
+    map_method: magic_map
+    to:
+      name: restrict_mode_hash_table
+      type: boolean
+  sequence:
+    from:
+      name: sequence
+      type: integer
+    map_method: magic_map
+    to:
+      name: sequence
+      type: integer
+  sequence_id:
+    from:
+      name: sequence_id
+      relation: ir.sequence
+      type: many2one
+    map_method: magic_map
+    to:
+      name: sequence_id
+      relation: ir.sequence
+      type: many2one
+  sequence_number_next:
+    from:
+      name: sequence_number_next
+      type: integer
+    map_method: magic_map
+    to:
+      name: sequence_number_next
+      type: integer
+  show_on_dashboard:
+    from:
+      name: show_on_dashboard
+      type: boolean
+    map_method: magic_map
+    to:
+      name: show_on_dashboard
+      type: boolean
+  type:
+    from:
+      name: type
+      type: selection
+    map_method: magic_map
+    to:
+      name: type
+      type: selection
+  type_control_ids:
+    from:
+      name: type_control_ids
+      relation: account.account.type
+      type: many2many
+    map_method: magic_map
+    to:
+      name: type_control_ids
+      relation: account.account.type
+      type: many2many
+  website_message_ids:
+    from:
+      name: website_message_ids
+      relation: mail.message
+      relation_field: res_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: website_message_ids
+      relation: mail.message
+      relation_field: res_id
+      type: one2many
+no_match_fields:
+  activity_date_deadline:
+    from:
+      name: activity_date_deadline
+      type: date
+  activity_exception_decoration:
+    from:
+      name: activity_exception_decoration
+      type: selection
+  activity_exception_icon:
+    from:
+      name: activity_exception_icon
+      type: char
+  activity_state:
+    from:
+      name: activity_state
+      type: selection
+  alias_domain:
+    from:
+      name: alias_domain
+      type: char
+  at_least_one_inbound:
+    from:
+      name: at_least_one_inbound
+      type: boolean
+  at_least_one_outbound:
+    from:
+      name: at_least_one_outbound
+      type: boolean
+  company_partner_id:
+    from:
+      name: company_partner_id
+      relation: res.partner
+      type: many2one
+  display_name:
+    from:
+      name: display_name
+      type: char
+  json_activity_data:
+    from:
+      name: json_activity_data
+      type: text
+  kanban_dashboard:
+    from:
+      name: kanban_dashboard
+      type: text
+  kanban_dashboard_graph:
+    from:
+      name: kanban_dashboard_graph
+      type: text
+  message_attachment_count:
+    from:
+      name: message_attachment_count
+      type: integer
+  message_channel_ids:
+    from:
+      name: message_channel_ids
+      relation: mail.channel
+      type: many2many
+  message_has_error:
+    from:
+      name: message_has_error
+      type: boolean
+  message_has_error_counter:
+    from:
+      name: message_has_error_counter
+      type: integer
+  message_has_sms_error:
+    from:
+      name: message_has_sms_error
+      type: boolean
+  message_is_follower:
+    from:
+      name: message_is_follower
+      type: boolean
+  message_needaction:
+    from:
+      name: message_needaction
+      type: boolean
+  message_needaction_counter:
+    from:
+      name: message_needaction_counter
+      type: integer
+  message_partner_ids:
+    from:
+      name: message_partner_ids
+      relation: res.partner
+      type: many2many
+  message_unread:
+    from:
+      name: message_unread
+      type: boolean
+  message_unread_counter:
+    from:
+      name: message_unread_counter
+      type: integer
+  secure_sequence_id:
+    from:
+      name: secure_sequence_id
+      relation: ir.sequence
+      type: many2one

@@ -1,0 +1,374 @@
+model_to: account.move
+model_from: account.move
+domain: []
+external_id_method: row_get_id
+external_id_nomenclature: account_move_%s
+fields:
+  partner_id:
+    from:
+      name: partner_id
+      relation: res.partner
+      type: many2one
+    map_method: magic_map
+    to:
+      name: partner_id
+      relation: res.partner
+      type: many2one
+
+  auto_post:
+    from:
+      name: auto_post
+      type: boolean
+    map_method: magic_map
+    to:
+      name: auto_post
+      type: boolean
+  invoice_incoterm_id:
+    from:
+      name: invoice_incoterm_id
+      relation: account.incoterms
+      type: many2one
+    map_method: magic_map
+    to:
+      name: invoice_incoterm_id
+      relation: account.incoterms
+      type: many2one
+  invoice_partner_bank_id:
+    from:
+      name: invoice_partner_bank_id
+      relation: res.partner.bank
+      type: many2one
+    map_method: magic_map
+    to:
+      name: invoice_partner_bank_id
+      relation: res.partner.bank
+      type: many2one
+  invoice_payment_ref:
+    from:
+      name: invoice_payment_ref
+      type: char
+    map_method: magic_map
+    to:
+      name: invoice_payment_ref
+      type: char
+  invoice_sequence_number_next:
+    from:
+      name: invoice_sequence_number_next
+      type: char
+    map_method: magic_map
+    to:
+      name: invoice_sequence_number_next
+      type: char
+  invoice_source_email:
+    from:
+      name: invoice_source_email
+      type: char
+    map_method: magic_map
+    to:
+      name: invoice_source_email
+      type: char
+  invoice_vendor_bill_id:
+    from:
+      name: invoice_vendor_bill_id
+      relation: account.move
+      type: many2one
+    map_method: magic_map
+    to:
+      name: invoice_vendor_bill_id
+      relation: account.move
+      type: many2one
+  journal_id:
+    from:
+      name: journal_id
+      relation: account.journal
+      type: many2one
+    map_method: magic_map
+    to:
+      name: journal_id
+      relation: account.journal
+      type: many2one
+  reversal_move_id:
+    from:
+      name: reversal_move_id
+      relation: account.move
+      relation_field: reversed_entry_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: reversal_move_id
+      relation: account.move
+      relation_field: reversed_entry_id
+      type: one2many
+  tax_cash_basis_rec_id:
+    from:
+      name: tax_cash_basis_rec_id
+      relation: account.partial.reconcile
+      type: many2one
+    map_method: magic_map
+    to:
+      name: tax_cash_basis_rec_id
+      relation: account.partial.reconcile
+      type: many2one
+  to_check:
+    from:
+      name: to_check
+      type: boolean
+    map_method: magic_map
+    to:
+      name: to_check
+      type: boolean
+
+no_match_fields:
+  access_url:
+    from:
+      name: access_url
+      type: char
+  access_warning:
+    from:
+      name: access_warning
+      type: text
+  activity_date_deadline:
+    from:
+      name: activity_date_deadline
+      type: date
+  activity_exception_decoration:
+    from:
+      name: activity_exception_decoration
+      type: selection
+  activity_exception_icon:
+    from:
+      name: activity_exception_icon
+      type: char
+  activity_state:
+    from:
+      name: activity_state
+      type: selection
+  amount_by_group:
+    from:
+      name: amount_by_group
+      type: binary
+  amount_residual:
+    from:
+      name: amount_residual
+      type: monetary
+  amount_residual_signed:
+    from:
+      name: amount_residual_signed
+      type: monetary
+  amount_tax:
+    from:
+      name: amount_tax
+      type: monetary
+  amount_tax_signed:
+    from:
+      name: amount_tax_signed
+      type: monetary
+  amount_total:
+    from:
+      name: amount_total
+      type: monetary
+  amount_total_signed:
+    from:
+      name: amount_total_signed
+      type: monetary
+  amount_untaxed:
+    from:
+      name: amount_untaxed
+      type: monetary
+  amount_untaxed_signed:
+    from:
+      name: amount_untaxed_signed
+      type: monetary
+  bank_partner_id:
+    from:
+      name: bank_partner_id
+      relation: res.partner
+      type: many2one
+  commercial_partner_id:
+    from:
+      name: commercial_partner_id
+      relation: res.partner
+      type: many2one
+  company_currency_id:
+    from:
+      name: company_currency_id
+      relation: res.currency
+      type: many2one
+  date:
+    from:
+      name: date
+      type: date
+  display_name:
+    from:
+      name: display_name
+      type: char
+  fiscal_position_id:
+    from:
+      name: fiscal_position_id
+      relation: account.fiscal.position
+      type: many2one
+  has_reconciled_entries:
+    from:
+      name: has_reconciled_entries
+      type: boolean
+  inalterable_hash:
+    from:
+      name: inalterable_hash
+      type: char
+  invoice_cash_rounding_id:
+    from:
+      name: invoice_cash_rounding_id
+      relation: account.cash.rounding
+      type: many2one
+  invoice_date:
+    from:
+      name: invoice_date
+      type: date
+  invoice_date_due:
+    from:
+      name: invoice_date_due
+      type: date
+  invoice_filter_type_domain:
+    from:
+      name: invoice_filter_type_domain
+      type: char
+  invoice_has_matching_suspense_amount:
+    from:
+      name: invoice_has_matching_suspense_amount
+      type: boolean
+  invoice_has_outstanding:
+    from:
+      name: invoice_has_outstanding
+      type: boolean
+  invoice_line_ids:
+    from:
+      name: invoice_line_ids
+      relation: account.move.line
+      relation_field: move_id
+      type: one2many
+  invoice_origin:
+    from:
+      name: invoice_origin
+      type: char
+  invoice_outstanding_credits_debits_widget:
+    from:
+      name: invoice_outstanding_credits_debits_widget
+      type: text
+  invoice_partner_display_name:
+    from:
+      name: invoice_partner_display_name
+      type: char
+  invoice_partner_icon:
+    from:
+      name: invoice_partner_icon
+      type: char
+  invoice_payment_state:
+    from:
+      name: invoice_payment_state
+      type: selection
+  invoice_payment_term_id:
+    from:
+      name: invoice_payment_term_id
+      relation: account.payment.term
+      type: many2one
+  invoice_payments_widget:
+    from:
+      name: invoice_payments_widget
+      type: text
+  invoice_sent:
+    from:
+      name: invoice_sent
+      type: boolean
+  invoice_sequence_number_next_prefix:
+    from:
+      name: invoice_sequence_number_next_prefix
+      type: char
+  line_ids:
+    from:
+      name: line_ids
+      relation: account.move.line
+      relation_field: move_id
+      type: one2many
+  message_attachment_count:
+    from:
+      name: message_attachment_count
+      type: integer
+  message_channel_ids:
+    from:
+      name: message_channel_ids
+      relation: mail.channel
+      type: many2many
+  message_has_error:
+    from:
+      name: message_has_error
+      type: boolean
+  message_has_error_counter:
+    from:
+      name: message_has_error_counter
+      type: integer
+  message_has_sms_error:
+    from:
+      name: message_has_sms_error
+      type: boolean
+  message_is_follower:
+    from:
+      name: message_is_follower
+      type: boolean
+  message_needaction:
+    from:
+      name: message_needaction
+      type: boolean
+  message_needaction_counter:
+    from:
+      name: message_needaction_counter
+      type: integer
+  message_partner_ids:
+    from:
+      name: message_partner_ids
+      relation: res.partner
+      type: many2many
+  message_unread:
+    from:
+      name: message_unread
+      type: boolean
+  message_unread_counter:
+    from:
+      name: message_unread_counter
+      type: integer
+  name:
+    from:
+      name: name
+      type: char
+  restrict_mode_hash_table:
+    from:
+      name: restrict_mode_hash_table
+      type: boolean
+  secure_sequence_number:
+    from:
+      name: secure_sequence_number
+      type: integer
+  state:
+    from:
+      name: state
+      type: selection
+  string_to_hash:
+    from:
+      name: string_to_hash
+      type: char
+  tax_lock_date_message:
+    from:
+      name: tax_lock_date_message
+      type: char
+  type:
+    from:
+      name: type
+      type: selection
+  type_name:
+    from:
+      name: type_name
+      type: char
+  user_id:
+    from:
+      name: user_id
+      relation: res.users
+      type: many2one

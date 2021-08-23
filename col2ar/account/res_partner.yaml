@@ -1,0 +1,59 @@
+model_from: res.partner
+model_to: res.partner
+domain: []
+external_id_method: match_field
+external_id_field_from: fe_nit
+external_id_field_to: vat
+fields:
+  customer_rank:
+    from:
+      name: customer_rank
+      type: integer
+    map_method: magic_map
+    to:
+      name: customer_rank
+      type: integer
+  debit_limit:
+    from:
+      name: debit_limit
+      type: monetary
+    map_method: magic_map
+    to:
+      name: debit_limit
+      type: monetary
+  invoice_warn:
+    from:
+      name: invoice_warn
+      type: selection
+    map_method: magic_map
+    to:
+      name: invoice_warn
+      type: selection
+  invoice_warn_msg:
+    from:
+      name: invoice_warn_msg
+      type: text
+    map_method: magic_map
+    to:
+      name: invoice_warn_msg
+      type: text
+  property_account_payable_id:
+    from:
+      name: property_account_payable_id
+      relation: account.account
+      type: many2one
+    map_method: magic_map
+    to:
+      name: property_account_payable_id
+      relation: account.account
+      type: many2one
+  property_account_receivable_id:
+    from:
+      name: property_account_receivable_id
+      relation: account.account
+      type: many2one
+    map_method: magic_map
+    to:
+      name: property_account_receivable_id
+      relation: account.account
+      type: many2one

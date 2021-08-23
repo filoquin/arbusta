@@ -1,0 +1,19 @@
+domain: []
+external_id_method: row_get_id
+external_id_nomenclature: account_payment_%s
+fields:
+  attachment_ids:
+    from:
+      name: attachment_ids
+      relation: ir.attachment
+      relation_field: res_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: attachment_ids
+      relation: ir.attachment
+      relation_field: res_id
+      type: one2many
+model_from: account.payment
+model_to: account.payment
+no_match_fields: []

@@ -1,0 +1,5 @@
+*.conf
+*.pyc
+lib/*
+include/*
+bin/*

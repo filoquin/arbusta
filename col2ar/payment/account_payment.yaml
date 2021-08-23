@@ -1,0 +1,22 @@
+domain: []
+external_id_method: row_get_id
+external_id_nomenclature: account_payment_%s
+fields:
+  payment_token_id:
+    from:
+      name: payment_token_id
+      relation: payment.token
+      type: many2one
+    map_method: magic_map
+    to:
+      name: payment_token_id
+      relation: payment.token
+      type: many2one
+model_from: account.payment
+model_to: account.payment
+no_match_fields:
+  payment_transaction_id:
+    from:
+      name: payment_transaction_id
+      relation: payment.transaction
+      type: many2one

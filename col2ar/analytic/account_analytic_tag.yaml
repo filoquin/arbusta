@@ -1,0 +1,61 @@
+model_from: account.analytic.tag
+model_to: account.analytic.tag
+external_id_method: match_field
+external_id_field_from: name
+external_id_field_to: name
+external_id_domain_to: [['company_id','=',4]]
+fields:
+  active:
+    from:
+      name: active
+      type: boolean
+    map_method: magic_map
+    to:
+      name: active
+      type: boolean
+  active_analytic_distribution:
+    from:
+      name: active_analytic_distribution
+      type: boolean
+    map_method: magic_map
+    to:
+      name: active_analytic_distribution
+      type: boolean
+  analytic_distribution_ids:
+    from:
+      name: analytic_distribution_ids
+      relation: account.analytic.distribution
+      relation_field: tag_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: analytic_distribution_ids
+      relation: account.analytic.distribution
+      relation_field: tag_id
+      type: one2many
+  color:
+    from:
+      name: color
+      type: integer
+    map_method: magic_map
+    to:
+      name: color
+      type: integer
+  company_id:
+    from:
+      name: company_id
+      relation: res.company
+      type: many2one
+    map_method: magic_map
+    to:
+      name: company_id
+      relation: res.company
+      type: many2one
+  name:
+    from:
+      name: name
+      type: char
+    map_method: magic_map
+    to:
+      name: name
+      type: char

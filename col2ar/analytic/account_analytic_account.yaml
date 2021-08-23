@@ -1,0 +1,108 @@
+model_from: account.analytic.account
+model_to: account.analytic.account
+domain: []
+external_id_method: match_field
+external_id_field_from: name
+external_id_field_to: name
+external_id_domain_to: [['company_id','=',4]]
+fields:
+  active:
+    from:
+      name: active
+      type: boolean
+    map_method: magic_map
+    to:
+      name: active
+      type: boolean
+  code:
+    from:
+      name: code
+      type: char
+    map_method: magic_map
+    to:
+      name: code
+      type: char
+  company_id:
+    from:
+      name: company_id
+      relation: res.company
+      type: many2one
+    map_method: magic_map
+    to:
+      name: company_id
+      relation: res.company
+      type: many2one
+  group_id:
+    from:
+      name: group_id
+      relation: account.analytic.group
+      type: many2one
+    map_method: magic_map
+    to:
+      name: group_id
+      relation: account.analytic.group
+      type: many2one
+  line_ids:
+    from:
+      name: line_ids
+      relation: account.analytic.line
+      relation_field: account_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: line_ids
+      relation: account.analytic.line
+      relation_field: account_id
+      type: one2many
+  message_follower_ids:
+    from:
+      name: message_follower_ids
+      relation: mail.followers
+      relation_field: res_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: message_follower_ids
+      relation: mail.followers
+      relation_field: res_id
+      type: one2many
+  message_ids:
+    from:
+      name: message_ids
+      relation: mail.message
+      relation_field: res_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: message_ids
+      relation: mail.message
+      relation_field: res_id
+      type: one2many
+  message_main_attachment_id:
+    from:
+      name: message_main_attachment_id
+      relation: ir.attachment
+      type: many2one
+    map_method: magic_map
+    to:
+      name: message_main_attachment_id
+      relation: ir.attachment
+      type: many2one
+  name:
+    from:
+      name: name
+      type: char
+    map_method: magic_map
+    to:
+      name: name
+      type: char
+  partner_id:
+    from:
+      name: partner_id
+      relation: res.partner
+      type: many2one
+    map_method: magic_map
+    to:
+      name: partner_id
+      relation: res.partner
+      type: many2one

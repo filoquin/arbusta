@@ -1,0 +1,376 @@
+model_from: account.move.line
+model_to: account.move.line
+domain: []
+external_id_method: row_get_id
+external_id_nomenclature: account_move_line_%s
+fields:
+  account_id:
+    from:
+      name: account_id
+      relation: account.account
+      type: many2one
+    map_method: magic_map
+    to:
+      name: account_id
+      relation: account.account
+      type: many2one
+
+  move_id:
+    from:
+      name: move_id
+      relation: account.move
+      type: many2one
+    map_method: magic_map
+    to:
+      name: move_id
+      relation: account.move
+      type: many2one
+
+  amount_currency:
+    from:
+      name: amount_currency
+      type: monetary
+    map_method: magic_map
+    to:
+      name: amount_currency
+      type: monetary
+  analytic_account_id:
+    from:
+      name: analytic_account_id
+      relation: account.analytic.account
+      type: many2one
+    map_method: magic_map
+    to:
+      name: analytic_account_id
+      relation: account.analytic.account
+      type: many2one
+  analytic_line_ids:
+    from:
+      name: analytic_line_ids
+      relation: account.analytic.line
+      relation_field: move_id
+      type: one2many
+    map_method: magic_map
+    to:
+      name: analytic_line_ids
+      relation: account.analytic.line
+      relation_field: move_id
+      type: one2many
+  analytic_tag_ids:
+    from:
+      name: analytic_tag_ids
+      relation: account.analytic.tag
+      type: many2many
+    map_method: magic_map
+    to:
+      name: analytic_tag_ids
+      relation: account.analytic.tag
+      type: many2many
+  blocked:
+    from:
+      name: blocked
+      type: boolean
+    map_method: magic_map
+    to:
+      name: blocked
+      type: boolean
+  credit:
+    from:
+      name: credit
+      type: monetary
+    map_method: magic_map
+    to:
+      name: credit
+      type: monetary
+  currency_id:
+    from:
+      name: currency_id
+      relation: res.currency
+      type: many2one
+    map_method: magic_map
+    to:
+      name: currency_id
+      relation: res.currency
+      type: many2one
+  date_maturity:
+    from:
+      name: date_maturity
+      type: date
+    map_method: magic_map
+    to:
+      name: date_maturity
+      type: date
+  debit:
+    from:
+      name: debit
+      type: monetary
+    map_method: magic_map
+    to:
+      name: debit
+      type: monetary
+  discount:
+    from:
+      name: discount
+      type: float
+    map_method: magic_map
+    to:
+      name: discount
+      type: float
+  display_type:
+    from:
+      name: display_type
+      type: selection
+    map_method: magic_map
+    to:
+      name: display_type
+      type: selection
+  exclude_from_invoice_tab:
+    from:
+      name: exclude_from_invoice_tab
+      type: boolean
+    map_method: magic_map
+    to:
+      name: exclude_from_invoice_tab
+      type: boolean
+  is_rounding_line:
+    from:
+      name: is_rounding_line
+      type: boolean
+    map_method: magic_map
+    to:
+      name: is_rounding_line
+      type: boolean
+  name:
+    from:
+      name: name
+      type: char
+    map_method: magic_map
+    to:
+      name: name
+      type: char
+  partner_id:
+    from:
+      name: partner_id
+      relation: res.partner
+      type: many2one
+    map_method: magic_map
+    to:
+      name: partner_id
+      relation: res.partner
+      type: many2one
+  payment_id:
+    from:
+      name: payment_id
+      relation: account.payment
+      type: many2one
+    map_method: magic_map
+    to:
+      name: payment_id
+      relation: account.payment
+      type: many2one
+  price_unit:
+    from:
+      name: price_unit
+      type: float
+    map_method: magic_map
+    to:
+      name: price_unit
+      type: float
+  product_id:
+    from:
+      name: product_id
+      relation: product.product
+      type: many2one
+    map_method: magic_map
+    to:
+      name: product_id
+      relation: product.product
+      type: many2one
+  product_uom_id:
+    from:
+      name: product_uom_id
+      relation: uom.uom
+      type: many2one
+    map_method: magic_map
+    to:
+      name: product_uom_id
+      relation: uom.uom
+      type: many2one
+  quantity:
+    from:
+      name: quantity
+      type: float
+    map_method: magic_map
+    to:
+      name: quantity
+      type: float
+  ref:
+    from:
+      name: ref
+      type: char
+    map_method: magic_map
+    to:
+      name: ref
+      type: char
+  sequence:
+    from:
+      name: sequence
+      type: integer
+    map_method: magic_map
+    to:
+      name: sequence
+      type: integer
+  tag_ids:
+    from:
+      name: tag_ids
+      relation: account.account.tag
+      type: many2many
+    map_method: magic_map
+    to:
+      name: tag_ids
+      relation: account.account.tag
+      type: many2many
+  tax_ids:
+    from:
+      name: tax_ids
+      relation: account.tax
+      type: many2many
+    map_method: magic_map
+    to:
+      name: tax_ids
+      relation: account.tax
+      type: many2many
+
+no_match_fields:
+  account_internal_type:
+    from:
+      name: account_internal_type
+      type: selection
+  account_root_id:
+    from:
+      name: account_root_id
+      relation: account.root
+      type: many2one
+  always_set_currency_id:
+    from:
+      name: always_set_currency_id
+      relation: res.currency
+      type: many2one
+  amount_residual:
+    from:
+      name: amount_residual
+      type: monetary
+  amount_residual_currency:
+    from:
+      name: amount_residual_currency
+      type: monetary
+  balance:
+    from:
+      name: balance
+      type: monetary
+  company_currency_id:
+    from:
+      name: company_currency_id
+      relation: res.currency
+      type: many2one
+  date:
+    from:
+      name: date
+      type: date
+  display_name:
+    from:
+      name: display_name
+      type: char
+  full_reconcile_id:
+    from:
+      name: full_reconcile_id
+      relation: account.full.reconcile
+      type: many2one
+  journal_id:
+    from:
+      name: journal_id
+      relation: account.journal
+      type: many2one
+  matched_credit_ids:
+    from:
+      name: matched_credit_ids
+      relation: account.partial.reconcile
+      relation_field: debit_move_id
+      type: one2many
+  matched_debit_ids:
+    from:
+      name: matched_debit_ids
+      relation: account.partial.reconcile
+      relation_field: credit_move_id
+      type: one2many
+  move_id:
+    from:
+      name: move_id
+      relation: account.move
+      type: many2one
+  move_name:
+    from:
+      name: move_name
+      type: char
+  parent_state:
+    from:
+      name: parent_state
+      type: selection
+  price_subtotal:
+    from:
+      name: price_subtotal
+      type: monetary
+  price_total:
+    from:
+      name: price_total
+      type: monetary
+  recompute_tax_line:
+    from:
+      name: recompute_tax_line
+      type: boolean
+  reconcile_model_id:
+    from:
+      name: reconcile_model_id
+      relation: account.reconcile.model
+      type: many2one
+  reconciled:
+    from:
+      name: reconciled
+      type: boolean
+  statement_id:
+    from:
+      name: statement_id
+      relation: account.bank.statement
+      type: many2one
+  statement_line_id:
+    from:
+      name: statement_line_id
+      relation: account.bank.statement.line
+      type: many2one
+  tax_audit:
+    from:
+      name: tax_audit
+      type: char
+  tax_base_amount:
+    from:
+      name: tax_base_amount
+      type: monetary
+  tax_exigible:
+    from:
+      name: tax_exigible
+      type: boolean
+  tax_group_id:
+    from:
+      name: tax_group_id
+      relation: account.tax.group
+      type: many2one
+  tax_line_id:
+    from:
+      name: tax_line_id
+      relation: account.tax
+      type: many2one
+  tax_repartition_line_id:
+    from:
+      name: tax_repartition_line_id
+      relation: account.tax.repartition.line
+      type: many2one
