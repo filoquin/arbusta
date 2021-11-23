@@ -55,6 +55,7 @@ fields:
       relation: res.country
       type: many2one
     map_method: same_name_many2one
+    map_no_create : True
     to:
       name: country_id
       relation: res.country

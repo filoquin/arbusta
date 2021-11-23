@@ -4,6 +4,14 @@ domain: []
 external_id_method: row_get_id
 external_id_nomenclature: account_move_%s
 fields:
+  type:
+    from:
+      name: type
+      type: char
+    to:
+      name: type
+      type: char
+
   partner_id:
     from:
       name: partner_id

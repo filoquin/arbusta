@@ -2,8 +2,8 @@ model_from: account.journal
 model_to: account.journal
 domain: []
 external_id_method: match_field
-external_id_field_from: code
-external_id_field_to: code
+external_id_field_from: name
+external_id_field_to: name
 fields:
   account_control_ids:
     from:

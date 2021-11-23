@@ -255,7 +255,7 @@ class odoo_xmlrpc_migration(object):
         return res_ids
 
     def save(self, plan, values, orig_id, kwargs):
-        # print(values)
+        #print(values)
         update = kwargs.get('update', True)
         create = kwargs.get('create', True)
 
@@ -401,7 +401,8 @@ class odoo_xmlrpc_migration(object):
             else:
                 if len(stack(0)) > 20:
                     return None
-
+                print  (field_data['from']['relation'])
+                print (value)
                 new = self.migrate(
                     field_data['from']['relation'],
                     row_ids=[value[0]]
@@ -584,14 +585,17 @@ class odoo_xmlrpc_migration(object):
                   for i in range(0, len(ids), self.chunk_size)]
         for chunk in chunks:
             print ("execute %s: %s of %s" % (method, len(chunk), len(chunks)))
-            sock.execute(
-                server['dbname'],
-                server['uid'],
-                server['pwd'],
-                model,
-                method,
-                chunk
-            )
+            try:
+                sock.execute(
+                    server['dbname'],
+                    server['uid'],
+                    server['pwd'],
+                    model,
+                    method,
+                    chunk
+                )
+            except Exception as e:
+                print (e)
         return True
 
     def search(self, model, leaf,  server='from'):
@@ -679,9 +683,12 @@ class odoo_xmlrpc_migration(object):
         if len(ext_id):
             return ext_id[0]
         else: 
+            if 'map_no_create' in field_data:
+                return None
             if len(stack(0)) > 20:
                 return None
-
+            if not value[0]:
+                return None
             new = self.migrate(
                 field_data['from']['relation'],
                 row_ids=[value[0]]

@@ -13,7 +13,9 @@ col2ar.modules.append('analytic')
 
 
 # Configuraciones de test
-mig = True
+mig = False
+mig_2 = False
+mig_3 = True
 col2ar.chunk_size = 20
 col2ar.is_test = True
 col2ar.chunk_size = 100
@@ -31,9 +33,10 @@ col2ar.context = {
     'default_company_id': origin_company_id,
     'default_l10n_latam_identification_type_id': it_fid
 }
-if mig:
-    #col2ar.migrate('res.partner', domain=[('fe_nit', '!=', False), ('fe_nit', '!=', '')])
 
+# Facturas de cliente 
+if mig:
+    # col2ar.migrate('res.partner', domain=[('fe_nit', '!=', False), ('fe_nit', '!=', '')])
     move_ids = col2ar.search('account.move', [
             ('journal_id', '=', inv_journal),
             ('state', '=', 'posted'),
@@ -50,3 +53,40 @@ if mig:
     dest_moves = col2ar.get_result_ids(implided_ids)
     col2ar.execute_method_chunked('account.move', 'post', dest_moves, 'to')
     #col2ar.migrate('account.move', row_ids=move_ids, force_fields=col2ar.name_field_def())
+
+# Facturas de proveedor 
+if mig_2:
+    move_ids = col2ar.search('account.move', [
+            ('state', '=', 'posted'),
+            ('type', 'in', ['in_invoice', 'in_refund']),
+        ]
+        )
+    implided_ids = col2ar.migrate('account.move', domain=[
+            ('id', 'in', move_ids),
+        ])
+
+
+    lines = col2ar.search('account.move.line', [('move_id', 'in', move_ids)])
+    res = col2ar.migrate('account.move.line', domain=[('move_id', 'in', move_ids)])
+    dest_moves = col2ar.get_result_ids(implided_ids)
+    col2ar.execute_method_chunked('account.move', 'post', dest_moves, 'to')
+
+# Diarios 
+if mig_3:
+    #, 'BNK1'
+    move_ids = col2ar.search('account.move', [
+            ('state', '=', 'posted'),
+            ('journal_id.code', 'in', ['GTO1', 'DS', 'IMPUE', 'MISC', 'NOM (', 'EXCH']),
+        ]
+        )
+    implided_ids = col2ar.migrate('account.move', domain=[
+            ('id', 'in', move_ids),
+        ])
+
+
+    lines = col2ar.search('account.move.line', [('move_id', 'in', move_ids)])
+    res = col2ar.migrate('account.move.line', domain=[('move_id', 'in', move_ids)])
+    dest_moves = col2ar.get_result_ids(implided_ids)
+    col2ar.execute_method_chunked('account.move', 'post', dest_moves, 'to')
+
+
